@@ -3,9 +3,7 @@
 
 int main(void) {
     long card;
-    do {
-        card = get_long("Number: ");
-    }
+    do card = get_long("Number: ");
     while (card <= 0);
 
     bool flag = false;
@@ -16,10 +14,6 @@ int main(void) {
 
     while (true) {
         last_bit = card % 10;
-        card = card / 10;
-        if (card >= 10 && card <= 99) {
-            head_bit = card;
-        }
         if (flag) {
             last_bit *= 2;
             if (last_bit > 9) {
@@ -27,27 +21,25 @@ int main(void) {
             }
         }
 
+        card = card / 10;
+        if (card >= 10 && card <= 99) {
+            head_bit = card;
+        }
         checksum += last_bit;
         length++;
         flag = !flag;
-        if (card == 0) {
+        if (card == 0)
             break;
-        }
     }
     
-    if (checksum % 10 != 0) {
+    if (checksum % 10 != 0)
         printf("INVALID\n");
-    }
-    else if ((head_bit == 34 || head_bit == 37) && length == 15) {
+    else if ((head_bit == 34 || head_bit == 37) && length == 15)
         printf("AMEX\n");
-    }
-    else if (head_bit >= 51 && head_bit <= 55 && length == 16) {
+    else if (head_bit >= 51 && head_bit <= 55 && length == 16)
         printf("MASTERCARD\n");
-    }
-    else if (head_bit >= 40 && head_bit <= 49 && (length == 13 || length == 16)) {
+    else if (head_bit >= 40 && head_bit <= 49 && (length == 13 || length == 16))
         printf("VISA\n");
-    }
-    else {
+    else
         printf("INVALID\n");
-    }
 }
