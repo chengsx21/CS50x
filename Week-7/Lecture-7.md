@@ -133,9 +133,9 @@
 
     Notice that we use `--` to write a comment in SQL.
 
-- For example, we can execute `SELECT COUNT(*) FROM favorites WHERE language = 'C';`. A count is presented.
+- We can execute `SELECT COUNT(*) FROM favorites WHERE language = 'C';`. A count is presented.
 
-- Further, we could type `SELECT COUNT(*) FROM favorites WHERE language = 'C' AND problem = 'Mario';`. Notice how the `AND` is utilized to narrow our results.
+- Further, we could type `SELECT COUNT(*) FROM favorites WHERE language = 'C' AND problem = 'Mario';`.
 
 - Similarly, we could execute `SELECT language, COUNT(*) FROM favorites GROUP BY language;`. This would offer a temporary table that would show the language and count.
 
